@@ -122,7 +122,7 @@ final class Route
             $_GET[C('VAR_METHOD')] = C('DEFAULT_METHOD');
         }
         //以下划线分隔的模块名称改为pascal命名如hdphp_user=>HDPhpUser
-        $_GET[C('VAR_CONTROL')] = ucwords(preg_replace('@_([a-z]?)@ei', 'strtoupper("\1")', $_GET[C('VAR_CONTROL')]));
+        $_GET[C('VAR_CONTROL')] = ucwords(preg_replace_callback('@_([a-z]?)@ei', 'strtoupper("\1")', $_GET[C('VAR_CONTROL')]));
         //获得$_GET数据
         if (!empty($args)) {
             $count = count($args);
